@@ -25,6 +25,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path, alert: "討論版已刪除"
+  end
+
   def create
     @group = Group.new(group_params)
 
